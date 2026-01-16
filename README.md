@@ -37,18 +37,17 @@ Estrutura de Pastas
 
 Como executar os testes
 1. Clone este repositório:
-    git clone https://github.com/seu-usuario/nome-do-projeto.git
-2. Instale as dependências:
-    Bash
 
-    npm install
+        git clone https://github.com/seu-usuario/nome-do-projeto.git
+
+2. Instale as dependências:
+    
+        npm install
+
 3. Abra o Cypress (Modo Iterativo):
 
-    Bash
+        npx cypress open
 
-    npx cypress open
 4. Execute em modo Headless (Terminal):
 
-    Bash
-
-    npx cypress run
+        npx cypress run
