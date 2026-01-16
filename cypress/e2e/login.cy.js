@@ -33,4 +33,18 @@ describe('Feature: Log in', () => {
     LoginPage.BlockedUser.should('be.visible'); // Then
   });
 
+  /*Scenerio: User error
+    Given that i access the site
+    When i input the username 'error_user'
+    And the password 'secret_sauce'
+    Then one of the products in inventory must be with the wrong name (A part of the font code of the website) 
+
+    it('The site must have an error on the products list', ()=>{
+      cy.visit('/'); // Given
+
+      LoginPage.fill_login('error_user','secret_sauce'); // When
+
+      
+
+    });*/
 });
