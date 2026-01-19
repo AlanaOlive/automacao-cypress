@@ -1,0 +1,15 @@
+{
+  "name": "projeto-automacao-cypress",
+  "version": "1.0.0",
+  "devDependencies": {
+    "cypress-mochawesome-reporter": "^3.0.0",
+    "cypress-multi-reporters": "^2.0.5",
+    "mocha-junit-reporter": "^2.2.1"
+  },
+  "overrides": {
+    "diff": "^5.0.0"
+  },
+  "scripts": {
+  "test:regression": "npx cypress run --reporter mocha-junit-reporter --reporter-options mochaFile=cypress/reports/junit/results-[hash].xml"
+}
+}

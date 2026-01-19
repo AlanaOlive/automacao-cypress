@@ -1,6 +1,7 @@
 import LoginPage from '../support/pages/login.page' 
 import HomePage from '../support/pages/home.page'
 
+
 describe('Feature: Log in', () => {
 
   /*Scenerio: Successfull log in
@@ -9,13 +10,14 @@ describe('Feature: Log in', () => {
     And the password 'secret_sauce'
     Then i must be redirected to the home page */ 
   it('Must log in succesfully - User Standart', () => {
-    cy.visit('/'); //Given
-   
-    LoginPage.fill_login('standard_user', 'secret_sauce'); // When
-
-    cy.url().should('include', '/inventory.html'); // Then
+    //Given
+    cy.visit('/');
+   // When
+    LoginPage.fill_login('standard_user', 'secret_sauce'); 
+    // Then
+    cy.url().should('include', '/inventory.html'); 
     HomePage.ProductsList.should('be.visible');
-    
+    cy.screenshot();
   });
 
   /*Scenerio: Locked out log in
@@ -26,11 +28,13 @@ describe('Feature: Log in', () => {
  */
 
   it('Must have the home page access blocked - User locked out', () =>{
-    cy.visit('/'); // Given
-
-    LoginPage.fill_login('locked_out_user', 'secret_sauce'); // When
-
-    LoginPage.WarningErrror.should('contain', 'Sorry, this user has been locked out.'); // Then
+    // Given
+    cy.visit('/'); 
+    // When
+    LoginPage.fill_login('locked_out_user', 'secret_sauce'); 
+    // Then
+    LoginPage.WarningErrror.should('contain', 'Sorry, this user has been locked out.'); 
+    cy.screenshot();
   });
 
   /*Scenerio: Log in with wrong credentials
@@ -46,5 +50,6 @@ describe('Feature: Log in', () => {
     LoginPage.fill_login('standard_user', 'wrong_sauce');
     // Then
     LoginPage.WarningErrror.should('contain','Username and password do not match any user in this service');
+    cy.screenshot();
    });
 });

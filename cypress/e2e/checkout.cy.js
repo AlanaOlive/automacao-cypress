@@ -26,7 +26,7 @@ describe('Feature: Checkout', ()=> {
         CheckoutPage.TitlePage.should('contain', 'Checkout: Overview'); 
         CheckoutPage.FinishCheckoutButton.click();
         CheckoutPage.TitlePage.should('contain', 'Checkout: Complete!')
-
+        cy.screenshot();
     });
 
     /*Scenario: Blocked checkout 
@@ -51,6 +51,7 @@ describe('Feature: Checkout', ()=> {
 
         //Then
         CheckoutPage.ErrorMessage.should('be.visible');
+        cy.screenshot();
     });
     
 
