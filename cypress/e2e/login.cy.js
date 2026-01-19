@@ -30,21 +30,21 @@ describe('Feature: Log in', () => {
 
     LoginPage.fill_login('locked_out_user', 'secret_sauce'); // When
 
-    LoginPage.BlockedUser.should('be.visible'); // Then
+    LoginPage.WarningErrror.should('contain', 'Sorry, this user has been locked out.'); // Then
   });
 
-  /*Scenerio: User error
+  /*Scenerio: Log in with wrong credentials
     Given that i access the site
-    When i input the username 'error_user'
-    And the password 'secret_sauce'
-    Then one of the products in inventory must be with the wrong name (A part of the font code of the website) 
+    When i input the username 'standard_user'
+    And the password 'wrong_sauce"
+    Then the website must block my acess and show an alert message*/
 
-    it('The site must have an error on the products list', ()=>{
-      cy.visit('/'); // Given
-
-      LoginPage.fill_login('error_user','secret_sauce'); // When
-
-      
-
-    });*/
+   it('Must have the home page access blocked - Invalid credentials', ()=>{
+    // Given
+    cy.visit('/');
+    // When
+    LoginPage.fill_login('standard_user', 'wrong_sauce');
+    // Then
+    LoginPage.WarningErrror.should('contain','Username and password do not match any user in this service');
+   });
 });

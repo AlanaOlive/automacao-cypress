@@ -20,6 +20,13 @@ Feature: Autenticação de Usuários
     Então devo ver uma mensagem de alerta sobre o bloqueio
     E devo permanecer na página de login.
 
+    Cenário 3: Tentativa de acesso com credenciais inválidas
+    Dado que acesso a página de login
+    Quando insiro o usuário standard_user
+    E a senha wrong_sauce que está incorreta
+    Então me acesso à home page deve ser bloqueado com um aviso de credenciais inválidas.
+
+
 Tecnologias e Padrões Utilizados
     Framework: Cypress
     Linguagem: JavaScript
@@ -32,13 +39,13 @@ Estrutura de Pastas
     │   ├── e2e/              # Arquivos de teste (.cy.js)
     │   ├── support/          
     │   │   ├── pages/        # Implementação do Page Object Model
-    │   │   └── commands.js   # Comandos customizados (se aplicável)
+    │   │   └── commands.js   # Comandos customizados
     └── cypress.config.js     # Configurações globais do framework
 
 Como executar os testes
 1. Clone este repositório:
 
-        git clone https://github.com/seu-usuario/nome-do-projeto.git
+        git clone https://github.com/AlanaOlive/automacao-cypress
 
 2. Instale as dependências:
     
