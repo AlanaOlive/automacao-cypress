@@ -26,6 +26,21 @@ Feature: Autenticação de Usuários
     E a senha wrong_sauce que está incorreta
     Então me acesso à home page deve ser bloqueado com um aviso de credenciais inválidas.
 
+Feature: Checkout
+    
+    Cenário 1: Checkout realizado com sucesso
+    Dado que eu estou logada com o usuário standard_user
+    E eu tenho um ou mais produtos no meu carrinho de compras
+    Quando eu acesso o menu de checkout e insiro minhas informações pessoais
+    Então eu devo ser redirecinada para o menu de resumo de compra
+    E após eu confirmar, devo receber a mensagem de confirmação 'Checkout: Complete!'.
+
+    Cenário 2: Checkout bloqueado por falta de informações
+    Dado que eu estou logada com o usuário standard_user
+    E eu tenho um ou mais produtos no meu carrinho de compras
+    Quando eu acesso o menu de checkout
+    E ao preencher minhas informações pessoais eu esqueço de inserir algum campo
+    Então o site deve bloquear a próxima etapa do checkout e emitir um alerta sobre a informação faltante.
 
 Tecnologias e Padrões Utilizados
     Framework: Cypress
