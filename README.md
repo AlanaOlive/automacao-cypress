@@ -1,6 +1,6 @@
 Automação de Testes E2E - SauceDemo
 
-Este projeto contém a automação da jornada de usuário no e-commerce SauceDemo, focando nos principais cenários de uso, como autenticação e checkout. O framework utilizado foi Cypress com a arquitetura Page Object Model (POM) para garantir um código limpo e de fácil manutenção.
+Este projeto contém a automação da jornada de usuário no e-commerce SauceDemo, focando nos principais cenários de uso, como autenticação e checkout. O framework utilizado foi Cypress com a arquitetura Page Object Model (POM).
 -----
 Cenários de Teste (BDD)
 Os testes foram desenhados seguindo a sintaxe Gherkin, garantindo que as regras de negócio sejam respeitadas:
@@ -53,12 +53,12 @@ Feature: Carrinho de compras
     Dado que estou logada com o usuário standard_user
     Quando eu adiciono um item ao carrinho de compras 
     Então o preço do item no carrinho deve ser o mesmo listado na home page do site
-    
+
 Tecnologias e Padrões Utilizados
     Framework: Cypress
     Linguagem: JavaScript
     Padrão de Projeto: Page Object Model (POM)
-    Versionamento: Git & GitHub
+    Versionamento: GitHub
 
 Estrutura de Pastas
 
