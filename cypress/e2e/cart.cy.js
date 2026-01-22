@@ -32,13 +32,12 @@ describe('Feature: Check cart informations', ()=>{
         LoginPage.fill_login('standard_user', 'secret_sauce');
 
         //When
-        var itemPrice = HomePage.getItemPrice(1);
-        HomePage.getAddToCartButtonItem('backpack').click();
-        HomePage.CartButton.click();
-
-        //Then
-        CartPage.ItemPrice.should('eq', itemPrice);
-        cy.screenshot();
-
+        HomePage.getItemPrice(1).invoke('text').then((price) => {
+            HomePage.getAddToCartButtonItem('backpack').click();
+            HomePage.CartButton.click();
+        // Then
+            CartPage.ItemPrice.invoke('text').should('eq', price);    
+            cy.screenshot();
+        });        
     });
 })
