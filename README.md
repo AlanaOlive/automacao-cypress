@@ -41,7 +41,19 @@ Feature: Checkout
     Quando eu acesso o menu de checkout
     E ao preencher minhas informações pessoais eu esqueço de inserir algum campo
     Então o site deve bloquear a próxima etapa do checkout e emitir um alerta sobre a informação faltante.
+Feature: Carrinho de compras
 
+    Cenário 1: Adicionar item ao carrinho
+    Dado que estou logada com o usuário standard_user
+    Quando eu adiciono um item ao carrinho
+    E acesso o menu de carrinho 
+    Então o item em questão deve estar listado
+
+    Cenário 2: Confirmar preço do item
+    Dado que estou logada com o usuário standard_user
+    Quando eu adiciono um item ao carrinho de compras 
+    Então o preço do item no carrinho deve ser o mesmo listado na home page do site
+    
 Tecnologias e Padrões Utilizados
     Framework: Cypress
     Linguagem: JavaScript
